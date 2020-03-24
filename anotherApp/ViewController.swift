@@ -22,11 +22,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var currentSelect: String = ""
     
-    func grabPoem(numberOfPoem: Int) {
+    func grabPoem(numberOfPoem: Int, cs: String) {
     
-    currentSelect = authors[0]
         
-     let docRef = db.collection(currentSelect).document("\(numberOfPoem)")
+     let docRef = db.collection(cs).document("\(numberOfPoem)")
      docRef.getDocument { (document, error) in
          if let document = document, document.exists {
              var poem = document.get("text")!
@@ -61,6 +60,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         //переключать current select, разобраться почему не вызывается база данных
         currentSelect = authors[row]
+        print(currentSelect)
+        
         
         
         //after we hide the  pickerview, we make the text field interactable again
@@ -74,7 +75,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         //make text field not editable
         authorField.isUserInteractionEnabled = false
         
-    currentSelect = authorField.text!
+       
     }
     
 
@@ -82,10 +83,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //assign random poem of Pushkin after the load
-        authorField.text = authors[0]
+        //assign random poem of Pushkin after the load, 0 means Pushkin
+        currentSelect = authors[0]
+        authorField.text = currentSelect
         let number = Int.random(in: 1 ..< 450)
-        grabPoem(numberOfPoem: number);
+        grabPoem(numberOfPoem: number,cs: currentSelect);
         
        
         
@@ -94,7 +96,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         
         let number = Int.random(in: 1 ..< 450)
-        grabPoem(numberOfPoem: number);
+        grabPoem(numberOfPoem: number,cs: currentSelect);
         
         
         
