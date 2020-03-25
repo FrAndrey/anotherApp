@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         authorField.text = authors[row]
         authorPickerView.isHidden = true
-        
+  
         //переключать current select, разобраться почему не вызывается база данных
         currentSelect = authors[row]
         print(currentSelect)

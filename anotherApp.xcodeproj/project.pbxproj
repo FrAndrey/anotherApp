@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		554ADCF223F0972F00A0D52D /* Poem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554ADCF123F0972F00A0D52D /* Poem.swift */; };
 		558A653A23DE024F00A9D824 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 558A653923DE024F00A9D824 /* GoogleService-Info.plist */; };
+		5594033E242A8B6000477281 /* testClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594033D242A8B6000477281 /* testClass.swift */; };
 		55979E6023CAB30B008DEC2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55979E5F23CAB30B008DEC2B /* AppDelegate.swift */; };
 		55979E6223CAB30B008DEC2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55979E6123CAB30B008DEC2B /* SceneDelegate.swift */; };
 		55979E6423CAB30B008DEC2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55979E6323CAB30B008DEC2B /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		54B0BEAC3F0968810B2E218C /* Pods-anotherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-anotherApp.release.xcconfig"; path = "Target Support Files/Pods-anotherApp/Pods-anotherApp.release.xcconfig"; sourceTree = "<group>"; };
 		554ADCF123F0972F00A0D52D /* Poem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poem.swift; sourceTree = "<group>"; };
 		558A653923DE024F00A9D824 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5594033D242A8B6000477281 /* testClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testClass.swift; sourceTree = "<group>"; };
 		55979E5C23CAB30B008DEC2B /* Poem App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poem App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55979E5F23CAB30B008DEC2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55979E6123CAB30B008DEC2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				55979E6A23CAB30C008DEC2B /* LaunchScreen.storyboard */,
 				558A653923DE024F00A9D824 /* GoogleService-Info.plist */,
 				55979E6D23CAB30C008DEC2B /* Info.plist */,
+				5594033D242A8B6000477281 /* testClass.swift */,
 			);
 			path = anotherApp;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			files = (
 				55979E6423CAB30B008DEC2B /* ViewController.swift in Sources */,
 				55979E6023CAB30B008DEC2B /* AppDelegate.swift in Sources */,
+				5594033E242A8B6000477281 /* testClass.swift in Sources */,
 				554ADCF223F0972F00A0D52D /* Poem.swift in Sources */,
 				55979E6223CAB30B008DEC2B /* SceneDelegate.swift in Sources */,
 			);
