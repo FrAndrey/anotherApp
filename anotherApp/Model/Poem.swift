@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Person {
+class Poem {
     var title: String
     var text: String
     
