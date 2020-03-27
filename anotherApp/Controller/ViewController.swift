@@ -7,16 +7,15 @@
 //
 
 import UIKit
-import Firebase
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    let db = Firestore.firestore()
     
     @IBOutlet weak var poemTitle: UILabel!
     @IBOutlet weak var poemText: UITextView!
     @IBOutlet weak var authorField: UITextField!
     @IBOutlet weak var authorPickerView: UIPickerView!
+    
+    var poemStructure = PoemStructure()
     
     var authors: [String] = ["Pushkin","Brodskij"]
     
@@ -24,21 +23,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var currentSelect: String = ""
     
-    func grabPoem(numberOfPoem: Int, cs: String) {
     
-        
-     let docRef = db.collection(cs).document("\(numberOfPoem)")
-     docRef.getDocument { (document, error) in
-         if let document = document, document.exists {
-             var poem = document.get("text")!
-             var title = document.get("title")!
-             self.poemText.text = (poem as! String).replacingOccurrences(of: "\\n", with: "\n")
-            self.poemTitle.text = (title as! String)
-         } else {
-                self.poemText.text = "Поэма не найдена"
-         }
-      }
-    }
        func numberOfComponents(in pickerView: UIPickerView) -> Int {
              return 1
          }

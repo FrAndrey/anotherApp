@@ -16,6 +16,7 @@
 		55979E6723CAB30B008DEC2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55979E6523CAB30B008DEC2B /* Main.storyboard */; };
 		55979E6923CAB30C008DEC2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55979E6823CAB30C008DEC2B /* Assets.xcassets */; };
 		55979E6C23CAB30C008DEC2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55979E6A23CAB30C008DEC2B /* LaunchScreen.storyboard */; };
+		55C135BB242EC00700BF5D21 /* PoemStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C135BA242EC00700BF5D21 /* PoemStructure.swift */; };
 		F9D9B3D5353109D651C06CF1 /* Pods_anotherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4C374FB668549402D77991 /* Pods_anotherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		55979E6823CAB30C008DEC2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55979E6B23CAB30C008DEC2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55979E6D23CAB30C008DEC2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55C135BA242EC00700BF5D21 /* PoemStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoemStructure.swift; sourceTree = "<group>"; };
 		5A4C374FB668549402D77991 /* Pods_anotherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_anotherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE6F4F2BB8AD5FB1A6BDF16 /* Pods-anotherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-anotherApp.debug.xcconfig"; path = "Target Support Files/Pods-anotherApp/Pods-anotherApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				554ADCF123F0972F00A0D52D /* Poem.swift */,
+				55C135BA242EC00700BF5D21 /* PoemStructure.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			files = (
 				55979E6423CAB30B008DEC2B /* ViewController.swift in Sources */,
 				55979E6023CAB30B008DEC2B /* AppDelegate.swift in Sources */,
+				55C135BB242EC00700BF5D21 /* PoemStructure.swift in Sources */,
 				5594033E242A8B6000477281 /* testClass.swift in Sources */,
 				554ADCF223F0972F00A0D52D /* Poem.swift in Sources */,
 				55979E6223CAB30B008DEC2B /* SceneDelegate.swift in Sources */,
