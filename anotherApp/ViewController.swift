@@ -107,9 +107,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         grabPoem(numberOfPoem: number,cs: currentSelect)
     }
     
-    @IBAction func previousButtonPressed(_ sender: UIButton) {
-        grabPoem(numberOfPoem: currentPoemNumber,cs: currentSelect)
-    }
     
    
         
