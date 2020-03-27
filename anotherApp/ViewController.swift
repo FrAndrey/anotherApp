@@ -20,6 +20,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var authors: [String] = ["Pushkin","Brodskij"]
     
+     var currentPoemNumber: Int = 0
+    
     var currentSelect: String = ""
     
     func grabPoem(numberOfPoem: Int, cs: String) {
@@ -58,11 +60,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         authorField.text = authors[row]
         authorPickerView.isHidden = true
   
-        //переключать current select, разобраться почему не вызывается база данных
+        //переключать current select
         currentSelect = authors[row]
         print(currentSelect)
         
-        
+        //сделать видимым author field
+        authorField.isHidden = false
         
         //after we hide the  pickerview, we make the text field interactable again
         authorField.isUserInteractionEnabled = true
@@ -74,6 +77,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         authorPickerView.isHidden = false
         //make text field not editable
         authorField.isUserInteractionEnabled = false
+        //make author field invisible
+        authorField.isHidden = true
         
        
     }
@@ -87,6 +92,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         currentSelect = authors[0]
         authorField.text = currentSelect
         let number = Int.random(in: 1 ..< 450)
+        //поколдовать. Нужно понять текущий номер поэмы чтобы было возможно вернуться к ней
+        //ИДЕЯ: чтобы вернуться можно было всего лишь раз
+        currentPoemNumber = number
         grabPoem(numberOfPoem: number,cs: currentSelect);
         
        
@@ -96,12 +104,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         
         let number = Int.random(in: 1 ..< 450)
-        grabPoem(numberOfPoem: number,cs: currentSelect);
-        
-        
-        
+        grabPoem(numberOfPoem: number,cs: currentSelect)
     }
-
+    
+    @IBAction func previousButtonPressed(_ sender: UIButton) {
+        grabPoem(numberOfPoem: currentPoemNumber,cs: currentSelect)
+    }
+    
    
         
             
