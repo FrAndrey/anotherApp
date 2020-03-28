@@ -62,7 +62,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         //make author field invisible
         authorField.isHidden = true
         
-       
+    }
+    
+    func updateUI() {
+        
+        poemTitle.text = poemStructure.currentPoem.title
+        poemText.text = poemStructure.currentPoem.text
+        
     }
     
 
@@ -70,6 +76,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateUI()
         //assign random poem of Pushkin after the load, 0 means Pushkin
         currentSelect = poemStructure.authors[0]
         authorField.text = currentSelect
@@ -88,6 +95,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         let number = Int.random(in: 1 ..< 450)
         poemStructure.grabPoem(numberOfPoem: number,cs: currentSelect)
+        updateUI()
     }
     
     

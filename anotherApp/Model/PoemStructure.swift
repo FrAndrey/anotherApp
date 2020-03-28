@@ -9,30 +9,30 @@
 import Foundation
 import Firebase
 
-struct PoemStructure {
+class PoemStructure {
     
     let db = Firestore.firestore()
     
     
     var currentAuthor: String = ""
     var authors: [String] = ["Pushkin","Brodskij"]
-    
+    var currentPoem = Poem(title: "", text: "")
 
     
     
     
-      func grabPoem(numberOfPoem: Int, cs: String) -> Poem {
-        
+     func grabPoem(numberOfPoem: Int, cs: String) -> Poem {
         
         let docRef = db.collection(cs).document("\(numberOfPoem)")
+        
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 document.get("text")
                 var poem = document.get("text")!
                 var title = document.get("title")!
-                var currentPoem = Poem(title: (title as! String), text: (poem as! String).replacingOccurrences(of: "\\n", with: "\n"))
+                self.currentPoem = Poem(title: (title as! String), text: (poem as! String).replacingOccurrences(of: "\\n", with: "\n"))
         
-                print(currentPoem.title)
+                print(self.currentPoem.title)
                   
               //  self.poemText.text = currentPoem.text
                // self.poemTitle.text = currentPoem.title
