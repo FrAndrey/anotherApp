@@ -15,9 +15,13 @@ struct PoemStructure {
     
     
     var currentAuthor: String = ""
+    var authors: [String] = ["Pushkin","Brodskij"]
+    
+
     
     
-     func grabPoem(numberOfPoem: Int, cs: String) {
+    
+      func grabPoem(numberOfPoem: Int, cs: String) -> Poem {
         
         
         let docRef = db.collection(cs).document("\(numberOfPoem)")
@@ -27,13 +31,16 @@ struct PoemStructure {
                 var poem = document.get("text")!
                 var title = document.get("title")!
                 var currentPoem = Poem(title: (title as! String), text: (poem as! String).replacingOccurrences(of: "\\n", with: "\n"))
-                
+        
+                print(currentPoem.title)
+                  
               //  self.poemText.text = currentPoem.text
                // self.poemTitle.text = currentPoem.title
             } else {
                 //self.poemText.text = "Поэма не найдена"
             }
         }
+        return currentPoem
     }
     
     

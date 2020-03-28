@@ -16,12 +16,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var authorPickerView: UIPickerView!
     
     var poemStructure = PoemStructure()
-    
-    var authors: [String] = ["Pushkin","Brodskij"]
-    
-     var currentPoemNumber: Int = 0
-    
     var currentSelect: String = ""
+    
+    
     
     
        func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -29,24 +26,24 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
          }
 
       func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        var countRows : Int = authors.count
+        var countRows : Int = poemStructure.authors.count
         return countRows
      }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        let titleRow = authors[row]
+        let titleRow = poemStructure.authors[row]
         return titleRow
         
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        authorField.text = authors[row]
+        authorField.text = poemStructure.authors[row]
         authorPickerView.isHidden = true
   
         //переключать current select
-        currentSelect = authors[row]
+        currentSelect = poemStructure.authors[row]
         print(currentSelect)
         
         //сделать видимым author field
@@ -74,13 +71,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         super.viewDidLoad()
         
         //assign random poem of Pushkin after the load, 0 means Pushkin
-        currentSelect = authors[0]
+        currentSelect = poemStructure.authors[0]
         authorField.text = currentSelect
-        let number = Int.random(in: 1 ..< 450)
+
         //поколдовать. Нужно понять текущий номер поэмы чтобы было возможно вернуться к ней
         //ИДЕЯ: чтобы вернуться можно было всего лишь раз
-        currentPoemNumber = number
-        grabPoem(numberOfPoem: number,cs: currentSelect);
+
+         let number = Int.random(in: 1 ..< 450)
+         poemStructure.grabPoem(numberOfPoem: number,cs: currentSelect);
         
        
         
@@ -89,7 +87,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         
         let number = Int.random(in: 1 ..< 450)
-        grabPoem(numberOfPoem: number,cs: currentSelect)
+        poemStructure.grabPoem(numberOfPoem: number,cs: currentSelect)
     }
     
     
