@@ -51,11 +51,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         //after we hide the  pickerview, we make the text field interactable again
         authorField.isUserInteractionEnabled = true
         
+         //after author is changed, загружаем случайную цитату для нового автора
         var number = Int.random(in: 1 ..< 300)
         var returnedPoem  = poemStructure.grabPoem(numberOfPoem: number, cs: ViewController.currentSelect)
         
-        
-        updateUI(returnedPoem)
+        updateUI(poemStructure.currentPoem)
         
         
     }
@@ -89,12 +89,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         //поколдовать. Нужно понять текущий номер поэмы чтобы было возможно вернуться к ней
         //ИДЕЯ: чтобы вернуться можно было всего лишь раз
+        
         var number = Int.random(in: 1 ..< 300)
         var returnedPoem  = poemStructure.grabPoem(numberOfPoem: number, cs: ViewController.currentSelect)
         
-        print(returnedPoem.title)
-        
-        updateUI(returnedPoem)
+        print(poemStructure.currentPoem.title)
+        updateUI(poemStructure.currentPoem)
         
         
     }
@@ -104,7 +104,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let number = Int.random(in: 1 ..< 450)
         var returnedPoem  = poemStructure.grabPoem(numberOfPoem: number,cs: ViewController.currentSelect)
         print(ViewController.currentSelect)
-        updateUI(returnedPoem)
+        updateUI(poemStructure.currentPoem)
         
     }
     

@@ -10,7 +10,7 @@ import Foundation
 
 class Poem {
     var title: String
-    var text: String
+    var text: String 
     
     init(title: String, text: String) {
         self.title = title

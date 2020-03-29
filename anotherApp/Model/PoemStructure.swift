@@ -21,7 +21,7 @@ class PoemStructure {
     
     
     
-    func grabPoem(numberOfPoem: Int, cs: String) -> Poem {
+    func grabPoem(numberOfPoem: Int, cs: String) {
         
         let docRef = db.collection(cs).document("\(numberOfPoem)")
         
@@ -35,7 +35,7 @@ class PoemStructure {
                 self.currentPoem = Poem (title: "", text: "Поэма не найдена, попробуй еще раз" )
             }
         }
-        return currentPoem
+
     }
     
     
