@@ -19,9 +19,11 @@ class PoemStructure {
     var currentPoem = Poem(title: "", text: "")
 
     
+    // func grabPoem - ждет как аргумент количество поэм, автора, который выбран в данный момент,
+    // а так же label для title и text. По странной причине currentPoem не возвращает ничего
+    // при этом функция нормально возвращает стих.
     
-    
-    func grabPoem(numberOfPoem: Int, cs: String, titleLabel: UILabel, textLabel: UITextView) {
+    func grabPoem(numberOfPoem: Int, cs: String, titleLabel: UILabel, textLabel: UITextView) -> Int{
         
         let docRef = db.collection(cs).document("\(numberOfPoem)")
         
@@ -38,7 +40,8 @@ class PoemStructure {
                 self.currentPoem = Poem (title: "", text: "Поэма не найдена, попробуй еще раз" )
             }
         }
-
+        //to know what number of Poem is
+        return numberOfPoem
     }
     
     
