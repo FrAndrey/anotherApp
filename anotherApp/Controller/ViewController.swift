@@ -90,6 +90,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         //поколдовать. Нужно понять текущий номер поэмы чтобы было возможно вернуться к ней
         //ИДЕЯ: чтобы вернуться можно было всего лишь раз
         
+        //Еще идея: Если в выбранной поэме в poem text пустое поле - запустить функцию еще раз
+        //например check if textLabel.text = "", call function() with different number
+        // in a loop, while (textLabel.text = "")
+        // то же самое можно сделать и если поэма не найдена
+        
         var number = Int.random(in: 1 ..< 300)
          var currentPoemNumber =    poemStructure.grabPoem(numberOfPoem: number, cs: ViewController.currentSelect,
         titleLabel: poemTitle, textLabel: poemText )
