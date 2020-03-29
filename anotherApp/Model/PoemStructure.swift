@@ -21,7 +21,7 @@ class PoemStructure {
     
     
     
-     func grabPoem(numberOfPoem: Int, cs: String) -> Poem {
+    func grabPoem(numberOfPoem: Int, cs: String) -> Poem {
         
         let docRef = db.collection(cs).document("\(numberOfPoem)")
         
@@ -31,13 +31,8 @@ class PoemStructure {
                 var poem = document.get("text")!
                 var title = document.get("title")!
                 self.currentPoem = Poem(title: (title as! String), text: (poem as! String).replacingOccurrences(of: "\\n", with: "\n"))
-        
-                print(self.currentPoem.title)
-                  
-              //  self.poemText.text = currentPoem.text
-               // self.poemTitle.text = currentPoem.title
             } else {
-                //self.poemText.text = "Поэма не найдена"
+                self.currentPoem = Poem (title: "", text: "Поэма не найдена, попробуй еще раз" )
             }
         }
         return currentPoem

@@ -16,19 +16,18 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var authorPickerView: UIPickerView!
     
     var poemStructure = PoemStructure()
-    var currentSelect: String = ""
+    static var currentSelect: String = ""
     
     
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
     
-       func numberOfComponents(in pickerView: UIPickerView) -> Int {
-             return 1
-         }
-
-      func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         var countRows : Int = poemStructure.authors.count
         return countRows
-     }
+    }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
@@ -36,15 +35,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return titleRow
         
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         authorField.text = poemStructure.authors[row]
         authorPickerView.isHidden = true
-  
+        
         //переключать current select
-        currentSelect = poemStructure.authors[row]
-        print(currentSelect)
+        ViewController.currentSelect = poemStructure.authors[row]
+        print(ViewController.currentSelect)
         
         //сделать видимым author field
         authorField.isHidden = false
@@ -64,46 +63,49 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
     }
     
-    func updateUI() {
+    
+    func updateUI(_ poem: Poem) {
         
-        poemTitle.text = poemStructure.currentPoem.title
-        poemText.text = poemStructure.currentPoem.text
+        poemTitle.text = poem.title
+        poemText.text = poem.text
         
     }
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
         //assign random poem of Pushkin after the load, 0 means Pushkin
-        currentSelect = poemStructure.authors[0]
-        authorField.text = currentSelect
-
+        ViewController.currentSelect = poemStructure.authors[0]
+        authorField.text = ViewController.currentSelect
+        
         //поколдовать. Нужно понять текущий номер поэмы чтобы было возможно вернуться к ней
         //ИДЕЯ: чтобы вернуться можно было всего лишь раз
-
-         let number = Int.random(in: 1 ..< 450)
-         poemStructure.grabPoem(numberOfPoem: number,cs: currentSelect);
         
-       
+        let number = Int.random(in: 1 ..< 450)
+        var returnedPoem  = poemStructure.grabPoem(numberOfPoem: number, cs: ViewController.currentSelect)
+        
+        updateUI(returnedPoem)
+        
         
     }
-
+    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         
         let number = Int.random(in: 1 ..< 450)
-        poemStructure.grabPoem(numberOfPoem: number,cs: currentSelect)
-        updateUI()
+        var returnedPoem  = poemStructure.grabPoem(numberOfPoem: number,cs: ViewController.currentSelect)
+        
+        updateUI(returnedPoem)
+        
     }
     
     
-   
+    
+    
+    
+  /*  public struct Poem: Codable {
         
-            
-    public struct Poem: Codable {
-
         let title: String
         let text: String?
         
@@ -111,14 +113,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             case title
             case text
         }
-
-    }
+        
+    } */
     
 }
 
-    
-    
-    
-    
+
+
+
+
 
 
