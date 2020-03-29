@@ -53,9 +53,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
          //after author is changed, загружаем случайную цитату для нового автора
         var number = Int.random(in: 1 ..< 300)
-        var returnedPoem  = poemStructure.grabPoem(numberOfPoem: number, cs: ViewController.currentSelect)
+        poemStructure.grabPoem(numberOfPoem: number, cs: ViewController.currentSelect,
+          titleLabel: poemTitle, textLabel: poemText )
         
-        updateUI(poemStructure.currentPoem)
+       // updateUI(poemStructure.currentPoem)
         
         
     }
@@ -91,10 +92,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         //ИДЕЯ: чтобы вернуться можно было всего лишь раз
         
         var number = Int.random(in: 1 ..< 300)
-        var returnedPoem  = poemStructure.grabPoem(numberOfPoem: number, cs: ViewController.currentSelect)
+        poemStructure.grabPoem(numberOfPoem: number, cs: ViewController.currentSelect,
+        titleLabel: poemTitle, textLabel: poemText )
         
         print(poemStructure.currentPoem.title)
-        updateUI(poemStructure.currentPoem)
+        //updateUI(poemStructure.currentPoem)
         
         
     }
@@ -102,9 +104,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         
         let number = Int.random(in: 1 ..< 450)
-        var returnedPoem  = poemStructure.grabPoem(numberOfPoem: number,cs: ViewController.currentSelect)
+       poemStructure.grabPoem(numberOfPoem: number, cs: ViewController.currentSelect,
+       titleLabel: poemTitle, textLabel: poemText )
+        
         print(ViewController.currentSelect)
-        updateUI(poemStructure.currentPoem)
+        //updateUI(poemStructure.currentPoem)
         
     }
     

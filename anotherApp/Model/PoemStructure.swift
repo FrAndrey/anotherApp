@@ -21,7 +21,7 @@ class PoemStructure {
     
     
     
-    func grabPoem(numberOfPoem: Int, cs: String) {
+    func grabPoem(numberOfPoem: Int, cs: String, titleLabel: UILabel, textLabel: UITextView) {
         
         let docRef = db.collection(cs).document("\(numberOfPoem)")
         
@@ -31,6 +31,9 @@ class PoemStructure {
                 var poem = document.get("text")!
                 var title = document.get("title")!
                 self.currentPoem = Poem(title: (title as! String), text: (poem as! String).replacingOccurrences(of: "\\n", with: "\n"))
+                textLabel.text = self.currentPoem.text
+                titleLabel.text = self.currentPoem.title
+                
             } else {
                 self.currentPoem = Poem (title: "", text: "Поэма не найдена, попробуй еще раз" )
             }
