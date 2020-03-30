@@ -17,6 +17,7 @@ class PoemStructure {
     var currentAuthor: String = ""
     var authors: [String] = ["Pushkin","Brodskij"]
     var currentPoem = Poem(title: "", text: "")
+    var withLong: Bool = false
 
     
     // func grabPoem - ждет как аргумент количество поэм, автора, который выбран в данный момент,

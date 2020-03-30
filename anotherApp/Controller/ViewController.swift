@@ -18,9 +18,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func shortLongCollectionSwitch(_ sender: UISwitch) {
         if (sender.isOn == true) {
+            poemStructure.withLong = true
         switchLabel.text = "Включая длинные"
         }
         else {
+            poemStructure.withLong = false
         switchLabel.text = "Покороче"
         }
     }
@@ -116,14 +118,16 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
        titleLabel: poemTitle, textLabel: poemText )
         
         print("Number of Poem: \(currentPoemNumber)")
+        print("Poem is long: \(poemStructure.withLong)")
         
         //ВАЖНО как поэму, poemStructure.currentPoem возвращает ПРЕДЫДУЩУЮ,
         // а не ту что сейчас на экране
         //это хорошо - потому что можно вернуться назад единожды
         // или - загружать эти поэмы в List, и возможнось делать мультиклик назад
         // но тогда - нужно будет запоминать и автора.
-         print(poemStructure.currentPoem.title)
-        print(poemStructure.currentPoem.text)
+        
+        //print(poemStructure.currentPoem.title)
+        //print(poemStructure.currentPoem.text)
         
     }
     
