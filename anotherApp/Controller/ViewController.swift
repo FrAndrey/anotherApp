@@ -17,7 +17,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var switchLabel: UITextField!
     
     @IBAction func shortLongCollectionSwitch(_ sender: UISwitch) {
+        if (sender.isOn == true) {
         switchLabel.text = "Включая длинные"
+        }
+        else {
+        switchLabel.text = "Покороче"
+        }
     }
     
     
