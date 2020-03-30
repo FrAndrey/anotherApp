@@ -21,7 +21,7 @@ class PoemStructure {
     
     // func grabPoem - ждет как аргумент количество поэм, автора, который выбран в данный момент,
     // а так же label для title и text. По странной причине currentPoem не возвращает ничего
-    // при этом функция нормально возвращает стих.
+    // при этом функция нормально наполняет лейблы нужным текстом.
     
     func grabPoem(numberOfPoem: Int, cs: String, titleLabel: UILabel, textLabel: UITextView) -> Int{
         
