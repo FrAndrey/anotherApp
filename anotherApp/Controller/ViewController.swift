@@ -14,8 +14,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var poemText: UITextView!
     @IBOutlet weak var authorField: UITextField!
     @IBOutlet weak var authorPickerView: UIPickerView!
-    var poemStructure = PoemStructure() 
+    @IBOutlet weak var switchLabel: UITextField!
     
+    @IBAction func shortLongCollectionSwitch(_ sender: UISwitch) {
+        switchLabel.text = "Включая длинные"
+    }
+    
+    
+    
+    var poemStructure = PoemStructure()
     static var currentSelect: String = ""
     
     
