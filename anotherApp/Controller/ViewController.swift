@@ -105,6 +105,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         print("Number of Poem: \(currentPoemNumber)")
         
+        //ВАЖНО как поэму, poemStructure.currentPoem возвращает ПРЕДЫДУЩУЮ,
+        // а не ту что сейчас на экране
+        //это хорошо - потому что можно вернуться назад единожды
+        // или - загружать эти поэмы в List, и возможнось делать мультиклик назад
+        // но тогда - нужно будет запоминать и автора.
+         print(poemStructure.currentPoem.title)
+        print(poemStructure.currentPoem.text)
+        
     }
     
     
